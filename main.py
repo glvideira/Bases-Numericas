@@ -3,4 +3,4 @@
 import conversores as conv
 
 
-conv.base8prabase2()
+conv.conversorUniversal(8, 16, '54')

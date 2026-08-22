@@ -187,22 +187,18 @@ def base16prabase10(base16=None):
         textoFinal = True
 
     if base16 in 'GHIJKLMNOPQRSTUVWXYZ':
-        print('Valor inválido')
-
+        return 'Valor inválido' if not textoFinal else print('Valor inválido')
+        
     else:
         base10 = 0
-
-        letras = {'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15}
-
+        numeros = {'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15}
         posicoes = list()
-
         base16Valores  = list()
-
         tamanhoBase16 = len(base16) - 1
 
         for c in base16:
             if c.isalpha():
-                base16Valores.append(letras[c])
+                base16Valores.append(numeros[c])
             else:
                 base16Valores.append(c)
 
@@ -232,14 +228,14 @@ def base16prabase2(base16=None):
         return 'Valor inválido' if not textoFinal else print('Valor inválido')
 
     else:
-        letras = {'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15}
+        numeros = {'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15}
 
         base2 = list()
         tamanhoBase16 = len(base16)
 
         for c in range(0, tamanhoBase16):
             if base16[c].isalpha():
-                base2.append(base10prabase2(letras[base16[c]]))
+                base2.append(base10prabase2(numeros[base16[c]]))
             else:
                 base2.append(base10prabase2(int(base16[c])))
 
@@ -312,5 +308,86 @@ def base8prabase2(base8=None):
         return ''.join(str(c) for c in base2)
 
 # Conversor Universal ///////////////////////////////////////////
+
 def conversorUniversal(baseOrigem, baseDestino, numero):
+    numeros = {'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15}
     
+    base10 = 0
+    posicoes = list()
+    valoresNumero = list()
+    tamanhoNumero = len(numero) - 1
+
+    for c in numero:
+        "parametro numero vai receber uma string, esse for transforma cada valor na string em int e coloca na lista valoresNumeros"
+        if c.isalpha():
+            valoresNumero.append(numeros[c])
+        else:
+            valoresNumero.append(int(c))
+
+    while tamanhoNumero > - 1:
+        "pega a posição certa de cada valor para usar na parte da soma das potências"
+        posicoes.append(tamanhoNumero)
+        tamanhoNumero -= 1
+
+    for pos, valor in zip(posicoes, valoresNumero):
+        "soma das potências"
+        base10 += valor * baseOrigem ** pos
+
+    if baseDestino == 10:
+        return print(f'{base10}')
+
+    letras = {10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F'}
+    numeroFinal = list()
+    dividendo = base10
+    
+    while dividendo > 0:
+        resto = dividendo % baseDestino
+        if resto in range(10, baseDestino):
+                    resto = letras[resto]
+
+        numeroFinal.insert(0, str(resto))
+        dividendo = dividendo // baseDestino
+    numeroFinal = ''.join(numeroFinal)
+
+    return print(f'{numeroFinal}')
+
+# Gerenciador das Conversões ///////////////////////////////////////////
+def gerenciadorConversoes():
+    baseOrigem = int(input('Digite a base de origem: '))
+    if baseOrigem not in [2, 10, 16, 8]:
+        return print('Base de origem inválida')
+    baseDestino = int(input('Digite a base de destino: '))
+    if baseDestino not in [2, 10, 16, 8]:
+        return print('Base de destino inválida')
+    numero = input('Digite o número a ser convertido: ')
+
+    match baseOrigem:
+        case 2:
+            match baseDestino:
+                case 10:
+                    return base2prabase10(numero)
+                case 16:
+                    return base2prabase16(numero)
+                case 8:
+                    return base2prabase8(numero)
+        case 10:
+            match baseDestino:
+                case 2:
+                    return base10prabase2(numero)
+                case 16:
+                    return base10prabase16(numero)
+                case 8:
+                    return base10prabase8(numero)
+        case 16:
+            match baseDestino:
+                case 10:
+                    return base16prabase10(numero)
+                case 2:
+                    return base16prabase2(numero)
+        case 8:
+            match baseDestino:
+                case 10:
+                    return base8prabase10(numero)
+                case 2:
+                    return base8prabase2(numero)
+        
