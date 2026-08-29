@@ -3,10 +3,10 @@ from rich.console import Console
 from rich.table import Table
 from time import sleep
 
-def escolha_menu():
+def escolha_menu(texto = "Escolha uma opção: "):
     while True:
             try:
-                escolha = int(input("Escolha uma opção: "))
+                escolha = int(input(texto))
                 break
     
             except ValueError as e:
@@ -32,8 +32,13 @@ def conversor_menu():
         console.print(tabela)
 
         escolha = escolha_menu()
-        
+
+        console.clear()
         match escolha:
             case 1:
-                  conv.gerenciadorConversoes()
-                
+                conv.gerenciadorConversoes()
+            case 2:
+                conv.geradorBases()
+            case 3:
+                conv.tutorial()
+                    

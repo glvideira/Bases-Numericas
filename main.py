@@ -10,7 +10,7 @@ console = Console()
 
 
 def mostrar_menu():
-    tabela = Table(title="Conversor de Bases")
+    tabela = Table(title="Bases Númericas")
 
     tabela.add_column("Opção", style="cyan", justify="center")
     tabela.add_column("Conversão", style="white")
