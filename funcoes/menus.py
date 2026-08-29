@@ -3,6 +3,8 @@ from rich.console import Console
 from rich.table import Table
 from time import sleep
 
+console = Console()
+
 def escolha_menu(texto = "Escolha uma opção: "):
     while True:
             try:
@@ -14,7 +16,17 @@ def escolha_menu(texto = "Escolha uma opção: "):
                 sleep(1.5)
     return escolha
 
-console = Console()
+def mostrar_menu():
+    tabela = Table(title="Bases Númericas")
+
+    tabela.add_column("Opção", style="cyan", justify="center")
+    tabela.add_column("Conversão", style="white")
+
+    tabela.add_row("1", "Conversão de bases")
+    tabela.add_row("2", "Operações aritméticas com base 2")
+    tabela.add_row("0", "Sair")
+
+    console.print(tabela)
 
 def conversor_menu():
     while True:
@@ -41,4 +53,6 @@ def conversor_menu():
                 conv.geradorBases()
             case 3:
                 conv.tutorial()
+            case 0:
+                return
                     

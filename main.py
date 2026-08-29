@@ -7,29 +7,22 @@ from time import sleep
 
 console = Console()
 
-
-
-def mostrar_menu():
-    tabela = Table(title="Bases Númericas")
-
-    tabela.add_column("Opção", style="cyan", justify="center")
-    tabela.add_column("Conversão", style="white")
-
-    tabela.add_row("1", "Conversão de bases")
-    tabela.add_row("2", "Operações aritméticas com base 2")
-    tabela.add_row("0", "Sair")
-
-    console.print(tabela)
-
 while True:
     console.clear()
-    mostrar_menu()
+    menu.mostrar_menu()
 
     escolha = menu.escolha_menu()
 
+    console.clear()
     match escolha:
         case 1:
             menu.conversor_menu()
+        case 2:
+            pass
+        case 0:
+            print("Volte sempre!")
+            sleep(2)
+            break
 
 
 

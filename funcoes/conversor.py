@@ -14,7 +14,7 @@ console = Console()
 def tutorial():
     while True:
         console.clear()
-        tabela = Table(title="Conversor de Bases")
+        tabela = Table(title="Como converter cada base")
 
         tabela.add_column("Opção", style="cyan", justify="center")
         tabela.add_column("Conversão", style="white")
@@ -115,73 +115,88 @@ def tutorial():
 def geradorBases():
     while True:
         console.clear()
-        print('1 – Praticar apenas com bases 2, 8, 10, 16')
-        print('2 – Praticar com diferentes bases (2 a 20)')
-        print('0 - voltar')
+        tabela = Table(title="Praticar conversões")
+        
+        tabela.add_column("Opção", style="cyan", justify="center")
+        tabela.add_column("Conversão", style="white")
+
+        tabela.add_row("1", "Praticar apenas com bases 2, 8, 10, 16")
+        tabela.add_row("2", "Praticar com diferentes bases (2 a 20)")
+        tabela.add_row("0", "Voltar")
+
+        console.print(tabela)
 
         escolha = menu.escolha_menu()
         
-        console.clear()
         match escolha:
             case 1:
-                bases = [2, 8, 10, 16]
-                numero = randint(1, 999)
-                
-                base1 = choice(bases)
-                bases.remove(base1)
-                base2 = choice(bases)
-
-                if base1 != 10:
-                    numero = conversorUniversal(10, base1, str(numero))
-
-                resposta = conversorUniversal(base1, base2, str(numero))
-
-                print(f'Passe {numero} (base {base1}) para a base {base2}.')
-                respostaUsuario = input('Resposta: ').strip().upper()
-
-                respostaUsuario = respostaUsuario.lstrip('0') or '0'
-
-                if respostaUsuario == resposta:
-                    print('resposta correta!')
+                while True:
+                    console.clear()
+                    bases = [2, 8, 10, 16]
+                    numero = randint(1, 999)
                     
-                else:
-                    print('Resposta incorreta!')
-                    sleep(0.7)
-                    print(f'O resultado era {resposta}')
+                    base1 = choice(bases)
+                    bases.remove(base1)
+                    base2 = choice(bases)
 
-                continuar = input('Tentar novamente? [s/n] ').strip().lower()
-                if continuar != 's':
-                    return
+                    if base1 != 10:
+                        numero = conversorUniversal(10, base1, str(numero))
+
+                    resposta = conversorUniversal(base1, base2, str(numero))
+
+                    print(f'Passe {numero} (base {base1}) para a base {base2}.')
+                    respostaUsuario = input('Resposta: ').strip().upper()
+
+                    respostaUsuario = respostaUsuario.lstrip('0') or '0'
+
+                    if respostaUsuario == resposta:
+                        print('resposta correta!')
+                        
+                    else:
+                        print('Resposta incorreta!')
+                        sleep(0.7)
+                        print(f'O resultado era {resposta}')
+
+                    continuar = input('Tentar novamente? [s/n] ').strip().lower()
+                    if continuar != 's':
+                        break
 
             case 2:
-                bases = list(range(2, 21))
-                numero = randint(1, 999)
+                while True:
+                    console.clear()
+                    basesConvencionais = [2, 8, 10, 16]
+                    bases = list(range(2, 21))
+                    numero = randint(1, 999)
 
-                base1 = choice(bases)
-                bases.remove(base1)
-                base2 = choice(bases)
+                    base1 = choice(bases)
+                    if base1 in basesConvencionais:
+                        for bc in basesConvencionais:
+                            bases.remove(bc)
+                    else:
+                        bases.remove(base1)
+                    base2 = choice(bases)
 
-                if base1 != 10:
-                    numero = conversorUniversal(10, base1, str(numero))
+                    if base1 != 10:
+                        numero = conversorUniversal(10, base1, str(numero))
 
-                resposta = conversorUniversal(base1, base2, str(numero))
+                    resposta = conversorUniversal(base1, base2, str(numero))
 
-                print(f'Passe {numero} (base {base1}) para a base {base2}.')
-                respostaUsuario = input('Resposta: ').strip().upper()
+                    print(f'Passe {numero} (base {base1}) para a base {base2}.')
+                    respostaUsuario = input('Resposta: ').strip().upper()
 
-                respostaUsuario = respostaUsuario.lstrip('0') or '0'
+                    respostaUsuario = respostaUsuario.lstrip('0') or '0'
 
-                if respostaUsuario == resposta:
-                    print('resposta correta!')
-                    
-                else:
-                    print('Resposta incorreta!')
-                    sleep(0.7)
-                    print(f'O resultado era {resposta}')
+                    if respostaUsuario == resposta:
+                        print('resposta correta!')
+                        
+                    else:
+                        print('Resposta incorreta!')
+                        sleep(0.7)
+                        print(f'O resultado era {resposta}')
 
-                continuar = input('Tentar novamente? [s/n] ').strip().lower()
-                if continuar != 's':
-                    return
+                    continuar = input('Tentar novamente? [s/n] ').strip().lower()
+                    if continuar != 's':
+                        break
             case 0:
                 return
             
