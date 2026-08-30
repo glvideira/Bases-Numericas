@@ -18,14 +18,8 @@ while True:
         case 1:
             menu.conversor_menu()
         case 2:
-            pass
+            menu.operacoes_menu()
         case 0:
             print("Volte sempre!")
             sleep(2)
             break
-
-
-
-
-
-

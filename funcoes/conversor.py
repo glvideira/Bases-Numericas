@@ -11,7 +11,7 @@ class NumeroInvalidoError(Exception):
 
 console = Console()
 
-def tutorial():
+def tutorialConversao():
     while True:
         console.clear()
         tabela = Table(title="Como converter cada base")
@@ -29,9 +29,6 @@ def tutorial():
         console.print(tabela)
 
         escolha = menu.escolha_menu()
-        print(dedent('''\
-
-            '''))
 
         console.clear()
         match escolha:
@@ -192,6 +189,7 @@ def geradorBases():
                     else:
                         print('Resposta incorreta!')
                         sleep(0.7)
+                        print()
                         print(f'O resultado era {resposta}')
 
                     continuar = input('Tentar novamente? [s/n] ').strip().lower()
@@ -293,12 +291,9 @@ def gerenciadorConversoes():
             numeroConvertido = conversorUniversal(baseOrigem, baseDestino, numero)
 
             print()
-            print(f'Valor {numero}')
-            print(f'base {baseOrigem}')
-            print(f'Para')
-            print(f'base {baseDestino}')
+            print(f'Valor {numero} (base {baseOrigem})')
             print()
-            print(f'vira {numeroConvertido}')
+            print(f'vira {numeroConvertido} (base {baseDestino})')
             sleep(1)
 
             continuar = input('Converter outro número? [s/n]: ').strip().lower()
@@ -306,7 +301,7 @@ def gerenciadorConversoes():
                 return
 
         except ValueError:
-            print('Erro: em umas das bases foi digitado um caractér inválido, tente novamente.')
+            print('Erro: em umas das bases foi digitado um caractere inválido, tente novamente.')
             sleep(1.5)
         except NumeroInvalidoError as e:
             print(f'Erro: {e}')
