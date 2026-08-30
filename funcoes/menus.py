@@ -19,7 +19,7 @@ def escolha_menu(texto = "Escolha uma opção: "):
     return escolha
 
 def mostrar_menu():
-    tabela = Table(title="Bases Númericas")
+    tabela = Table(title="Bases Numéricas")
 
     tabela.add_column("Opção", style="cyan", justify="center")
     tabela.add_column("Conversão", style="white")
