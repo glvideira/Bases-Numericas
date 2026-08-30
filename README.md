@@ -6,8 +6,8 @@ Um projeto de terminal em Python pra converter números entre bases diferentes (
 
 - **Converter qualquer número de uma base pra outra**, de base 2 até base 36 (sim, com letras de A a Z pras bases acima de 10).
 - **Praticar conversões**, com números aleatórios pra você tentar resolver na mão antes de ver a resposta.
-- **Fazer contas em binário** — soma, subtração, multiplicação e divisão — sem precisar converter nada, só digitando os números já em binário.
-- **Ler o tutorial de cada método**, se você (como eu) sempre esquece como faz a divisão sucessiva ou a separação em grupos de 3/4 bits.
+- **Fazer contas em binário** (soma, subtração, multiplicação e divisão) sem precisar converter nada, só digitando os números já em binário.
+- **Ler o tutorial de cada método**
 
 Tudo isso rodando num menu de terminal com tabelas usando a biblioteca [rich](https://github.com/Textualize/rich).
 
