@@ -1,6 +1,6 @@
 # Bases Numéricas
 
-Um projeto de terminal em Python pra converter números entre bases diferentes (de base 2 até base 36) e fazer operações matemáticas direto em binário. Comecei isso pra treinar lógica e acabou virando um projetinho completo, com menu, modo de prática e até um tutorial explicando cada conta na mão.
+Um projeto de terminal em Python pra converter números entre bases diferentes (de base 2 até base 36) e fazer operações matemáticas direto em binário. Comecei isso pra treinar lógica e acabou virando um projeto completo, com menu, modo de prática e até um tutorial explicando cada conta na mão.
 
 ## O que dá pra fazer
 
