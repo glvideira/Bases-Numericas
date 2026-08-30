@@ -4,16 +4,18 @@ import funcoes.menus as menu
 from rich.console import Console
 from rich.table import Table
 from time import sleep
+import os
+
 
 console = Console()
 
 while True:
-    console.clear()
+    os.system('cls')
     menu.mostrar_menu()
 
     escolha = menu.escolha_menu()
 
-    console.clear()
+    os.system('cls')
     match escolha:
         case 1:
             menu.conversor_menu()

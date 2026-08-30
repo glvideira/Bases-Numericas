@@ -4,6 +4,7 @@ from rich.console import Console
 from rich.table import Table
 import funcoes.menus as menu
 from textwrap import dedent
+import os
 
 class NumeroInvalidoError(Exception):
     'Erro lançado quando algum dos números nos parâmetros do conversor universal estão errados'
@@ -13,7 +14,7 @@ console = Console()
 
 def tutorialConversao():
     while True:
-        console.clear()
+        os.system('cls')
         tabela = Table(title="Como converter cada base")
 
         tabela.add_column("Opção", style="cyan", justify="center")
@@ -30,7 +31,7 @@ def tutorialConversao():
 
         escolha = menu.escolha_menu()
 
-        console.clear()
+        os.system('cls')
         match escolha:
             case 1:
                 print(dedent('''\
@@ -111,7 +112,7 @@ def tutorialConversao():
 
 def geradorBases():
     while True:
-        console.clear()
+        os.system('cls')
         tabela = Table(title="Praticar conversões")
         
         tabela.add_column("Opção", style="cyan", justify="center")
@@ -128,7 +129,7 @@ def geradorBases():
         match escolha:
             case 1:
                 while True:
-                    console.clear()
+                    os.system('cls')
                     bases = [2, 8, 10, 16]
                     numero = randint(1, 999)
                     
@@ -160,7 +161,7 @@ def geradorBases():
 
             case 2:
                 while True:
-                    console.clear()
+                    os.system('cls')
                     basesConvencionais = [2, 8, 10, 16]
                     bases = list(range(2, 21))
                     numero = randint(1, 999)

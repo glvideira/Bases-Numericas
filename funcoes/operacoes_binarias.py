@@ -5,12 +5,13 @@ import funcoes.menus as menu
 from time import sleep
 from random import randint
 from textwrap import dedent
+import os
 
 console = Console()
 
 def tutorialOperacoes():
     while True:
-        console.clear()
+        os.system('cls')
         tabela = Table(title="Como calcular as operações")
             
         tabela.add_column("Opção", style="cyan", justify="center")
@@ -26,7 +27,7 @@ def tutorialOperacoes():
 
         escolha = menu.escolha_menu()
 
-        console.clear()
+        os.system('cls')
         match escolha:
             case 1:
                 print(dedent('''\
@@ -137,7 +138,7 @@ def tutorialOperacoes():
 
 def geradorOperacoes():
     while True:
-            console.clear()
+            os.system('cls')
             tabela = Table(title="Praticar Operações")
                 
             tabela.add_column("Opção", style="cyan", justify="center")
@@ -153,7 +154,7 @@ def geradorOperacoes():
     
             escolha = menu.escolha_menu()
     
-            console.clear()
+            os.system('cls')
             while True:
                 match escolha:
                     case 1:
@@ -220,7 +221,7 @@ def calculadoraBinaria(valor1, valor2, operacao):
 
 def calculadoraMenu():
     while True:
-        console.clear()
+        os.system('cls')
         tabela = Table(title="Calculadora Base 2")
             
         tabela.add_column("Opção", style="cyan", justify="center")
@@ -239,7 +240,7 @@ def calculadoraMenu():
         if escolha == 0:
             return
         
-        console.clear()
+        os.system('cls')
         
         match escolha:
             case 1:

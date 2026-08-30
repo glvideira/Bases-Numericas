@@ -3,6 +3,7 @@ import funcoes.operacoes_binarias as op
 from rich.console import Console
 from rich.table import Table
 from time import sleep
+import os
 
 console = Console()
 
@@ -31,7 +32,7 @@ def mostrar_menu():
 
 def conversor_menu():
     while True:
-        console.clear()
+        os.system('cls')
         tabela = Table(title="Conversão de Bases")
 
         tabela.add_column("Opção", style="cyan", justify="center")
@@ -46,7 +47,7 @@ def conversor_menu():
 
         escolha = escolha_menu()
 
-        console.clear()
+        os.system('cls')
         match escolha:
             case 1:
                 conv.gerenciadorConversoes()
@@ -59,7 +60,7 @@ def conversor_menu():
 
 def operacoes_menu():
     while True:
-        console.clear()
+        os.system('cls')
         tabela = Table(title="Conversão de Bases")
 
         tabela.add_column("Opção", style="cyan", justify="center")
@@ -74,7 +75,7 @@ def operacoes_menu():
 
         escolha = escolha_menu()
 
-        console.clear()
+        os.system('cls')
         match escolha:
             case 1:
                 op.calculadoraMenu()
