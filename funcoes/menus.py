@@ -61,7 +61,7 @@ def conversor_menu():
 def operacoes_menu():
     while True:
         os.system('cls')
-        tabela = Table(title="Conversão de Bases")
+        tabela = Table(title="Operações Base 2")
 
         tabela.add_column("Opção", style="cyan", justify="center")
         tabela.add_column("Conversão", style="white")
