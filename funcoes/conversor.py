@@ -284,6 +284,7 @@ def conversorUniversal(baseOrigem, baseDestino, numero):
 # Gerenciador das Conversões ///////////////////////////////////////////
 def gerenciadorConversoes():
     while True:
+        os.system('cls')
         try:
             baseOrigem = int(input('Digite a base de origem: '))
             baseDestino = int(input('Digite a base de destino: '))
@@ -292,7 +293,7 @@ def gerenciadorConversoes():
             numeroConvertido = conversorUniversal(baseOrigem, baseDestino, numero)
 
             print()
-            print(f'Valor {numero} (base {baseOrigem})')
+            print(f'Valor {numero.upper()} (base {baseOrigem})')
             print()
             print(f'vira {numeroConvertido} (base {baseDestino})')
             sleep(1)

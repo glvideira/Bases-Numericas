@@ -27,7 +27,7 @@ def mostrar_menu():
     tabela.add_row("1", "Conversão de bases")
     tabela.add_row("2", "Operações com base 2")
     tabela.add_row("0", "Sair")
-
+    
     console.print(tabela)
 
 def conversor_menu():
